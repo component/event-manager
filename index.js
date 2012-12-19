@@ -58,11 +58,22 @@ EventManager.prototype.onunbind = function(fn){
  *
  * @param {String} event
  * @param {String} [method]
- * @return {EventManager}
  * @api public
  */
 
-EventManager.prototype.bind =
+EventManager.prototype.bind = function(event, method){
+  this._bind(event, this.addBinding.apply(this, arguments));
+};
+
+/**
+ * Add event binding.
+ *
+ * @param {String} event
+ * @param {String} method
+ * @return {Function} callback
+ * @api public
+ */
+
 EventManager.prototype.addBinding = function(event, method){
   var obj = this.obj;
   var method = method || 'on' + event;
@@ -78,10 +89,7 @@ EventManager.prototype.addBinding = function(event, method){
   this._bindings[event] = this._bindings[event] || {};
   this._bindings[event][method] = callback;
 
-  // bind
-  this._bind(event, callback);
-
-  return this;
+  return callback;
 };
 
 /**
