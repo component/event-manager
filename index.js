@@ -113,6 +113,7 @@ EventManager.prototype.unbind = function(event, method){
   if (0 == arguments.length) return this.unbindAll();
   if (1 == arguments.length) return this.unbindAllOf(event);
   var fn = this._bindings[event][method];
+  if (this._onunbind) this._onunbind(event, method, fn);
   this._unbind(event, fn);
   return fn;
 };
