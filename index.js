@@ -58,11 +58,14 @@ EventManager.prototype.onunbind = function(fn){
  *
  * @param {String} event
  * @param {String} [method]
+ * @return {Function} callback
  * @api public
  */
 
 EventManager.prototype.bind = function(event, method){
-  this._bind(event, this.addBinding.apply(this, arguments));
+  var fn = this.addBinding.apply(this, arguments);
+  this._bind(event, fn);
+  return fn;
 };
 
 /**
@@ -71,7 +74,7 @@ EventManager.prototype.bind = function(event, method){
  * @param {String} event
  * @param {String} method
  * @return {Function} callback
- * @api public
+ * @api private
  */
 
 EventManager.prototype.addBinding = function(event, method){
@@ -102,15 +105,16 @@ EventManager.prototype.addBinding = function(event, method){
  *
  * @param {String} [event]
  * @param {String} [method]
+ * @return {Function} callback
  * @api public
  */
 
-EventManager.prototype.unbind =
-EventManager.prototype.removeBinding = function(event, method){
+EventManager.prototype.unbind = function(event, method){
   if (0 == arguments.length) return this.unbindAll();
   if (1 == arguments.length) return this.unbindAllOf(event);
   var fn = this._bindings[event][method];
   this._unbind(event, fn);
+  return fn;
 };
 
 /**
