@@ -62,7 +62,8 @@ EventManager.prototype.onunbind = function(fn){
  * @api public
  */
 
-EventManager.prototype.bind = function(event, method){
+EventManager.prototype.bind =
+EventManager.prototype.addBinding = function(event, method){
   var obj = this.obj;
   var method = method || 'on' + event;
   var args = [].slice.call(arguments, 2);
@@ -96,7 +97,8 @@ EventManager.prototype.bind = function(event, method){
  * @api public
  */
 
-EventManager.prototype.unbind = function(event, method){
+EventManager.prototype.unbind =
+EventManager.prototype.removeBinding = function(event, method){
   if (0 == arguments.length) return this.unbindAll();
   if (1 == arguments.length) return this.unbindAllOf(event);
   var fn = this._bindings[event][method];
