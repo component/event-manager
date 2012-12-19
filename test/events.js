@@ -76,6 +76,8 @@ describe('EventManager#unbind(event, method)', function(){
 
     e.bind('login', 'login');
     e.unbind('login', 'login');
+    e.unbind('login', 'login');
+    e.unbind('login', 'login');
     user.emit('login');
     user.emit('login');
     user.emit('login');
@@ -98,6 +100,8 @@ describe('EventManager#unbind(event)', function(){
 
     e.bind('login', 'login');
     e.bind('login');
+    e.unbind('login');
+    e.unbind('login');
     e.unbind('login');
     user.emit('login');
     user.emit('login');
@@ -126,6 +130,9 @@ describe('EventManager#unbind(event)', function(){
     e.bind('login', 'login');
     e.bind('login');
     e.bind('logout');
+    e.unbind();
+    e.unbind();
+    e.unbind();
     e.unbind();
     user.emit('login');
     user.emit('login');
