@@ -67,16 +67,10 @@ EventManager.prototype.bind = function(event, method){
   var method = method || 'on' + event;
   var args = [].slice.call(arguments, 2);
 
-  // method
-  var fn = obj[method];
-  if ('function' != typeof fn) {
-    throw new Error('failed to bind "' + event + '" to ' + method + '(), method does not exist');
-  }
-
   // callback
   function callback() {
     var a = [].slice.call(arguments).concat(args);
-    fn.apply(obj, a);
+    obj[method].apply(obj, a);
   }
 
   // subscription
