@@ -1,4 +1,3 @@
-
 # EventManager
 
   Higher level event management designed to facilitate fluent
@@ -54,9 +53,9 @@
   or all bindings within the manager.
 
 ```js
-  evennts.unbind('login', 'onLogin')
-  evennts.unbind('login')
-  evennts.unbind()
+  events.unbind('login', 'onLogin')
+  events.unbind('login')
+  events.unbind()
 ```
 
 
