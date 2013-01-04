@@ -64,6 +64,7 @@ EventManager.prototype.onunbind = function(fn){
 
 EventManager.prototype.bind = function(event, method){
   var fn = this.addBinding.apply(this, arguments);
+  if (this._onbind) this._onbind(event, method, fn);
   this._bind(event, fn);
   return fn;
 };
