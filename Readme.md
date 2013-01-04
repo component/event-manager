@@ -9,8 +9,6 @@
   while [component/delegates](https://github.com/component/delegates)
   does the same, however for delegated events.
 
-  You can think of this as the "Event Emitter" of the abstract event mechanism.
-
 ## Installation
 
     $ component install component/event-manager
