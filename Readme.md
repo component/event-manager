@@ -1,6 +1,9 @@
 
 # EventManager
 
+  __DEPRECATED__: this module is no longer recommended, [component/events](https://github.com/component/events)
+  now supports this functionality directly.
+
   Higher level event management designed to facilitate fluent
   domain-specific event subscriptions.
 
