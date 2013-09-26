@@ -1,5 +1,4 @@
 
-
 /**
  * Expose `EventManager`.
  */
@@ -100,9 +99,9 @@ EventManager.prototype.addBinding = function(event, method){
  * Unbind a single binding, all bindings for `event`,
  * or all bindings within the manager.
  *
- *     evennts.unbind('login', 'onLogin')
- *     evennts.unbind('login')
- *     evennts.unbind()
+ *     events.unbind('login', 'onLogin')
+ *     events.unbind('login')
+ *     events.unbind()
  *
  * @param {String} [event]
  * @param {String} [method]
